@@ -10,8 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@apollo/client": "^3.11.10",
+    "@phosphor-icons/react": "^2.1.7",
+    "@types/react-modal": "^3.16.3",
+    "graphql": "^16.9.0",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-modal": "^3.16.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.15.0",

@@ -25,3 +25,15 @@
 .checked-btn {
   @apply border bg-slate-100 text-black border-transparent hover:border-slate-100 px-2 py-1 cursor-pointer rounded;
 }
+
+.low-priority {
+  @apply px-1 self-start rounded text-sm bg-green-500
+}
+
+.medium-priority {
+  @apply px-1 self-start rounded text-sm bg-yellow-500
+}
+
+.high-priority {
+  @apply px-1 self-start rounded text-sm bg-red-500
+}

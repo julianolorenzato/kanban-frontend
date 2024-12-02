@@ -1,26 +1,16 @@
-import { useState } from "react";
 import { Header } from "./components/Header";
-import { Sidebar } from "./components/Sidebar";
-import { Board } from "./pages/Board";
-import { SearchCard } from "./pages/SearchCard";
-import { Page, PageContext } from "./contexts/Page";
+import { Main } from "./components/Main";
+import { ApolloProvider } from "@apollo/client";
+import { client } from "./graphql/client";
 
 function App() {
-  const [page, setPage] = useState<Page>("board");
-
-  const elements = {
-    board: <Board />,
-    searchCard: <SearchCard />,
-  };
-
   return (
-    <PageContext.Provider value={{ page, setPage }}>
+    <ApolloProvider client={client}>
       <Header />
       <div className="h-[calc(100%-3rem)] flex flex-col sm:flex-row grow">
-        <Sidebar />
-        {elements[page]}
+        <Main />
       </div>
-    </PageContext.Provider>
+    </ApolloProvider>
   );
 }
 
