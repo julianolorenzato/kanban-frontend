@@ -1,50 +1,32 @@
-# React + TypeScript + Vite
+# Kanban Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Estrutura de pastas
 
-Currently, two official plugins are available:
+A seguinte estrutura de pastas foi utilizada:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- `src` (código fonte da aplicação)
+- - `components` (todos os componentes React utilizados para compor a àrvore de componentes da aplicação)
+- - `graphql`
+- - - `client.ts` (client GraphQL Apollo Client)
+- - - `queries.ts` (queries GraphQL utilizadas para obtenção de dados da API)
+- - `App.tsx` (componente inicial React)
+- - `index.css` (estilizações CSS e diretivas do TailwindCSS)
+- - `main.tsx` (criação do componente inicial na árvore de componentes da página)
 
-## Expanding the ESLint configuration
+## Bibliotecas utilizadas
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- `@apollo/client` [^3.11.10] - Client para requisições GraphQL e auxiliares para utilização com React.
+- `@phosphor-icons/react` [^2.1.7] - Ícones para utilização em conjunto com React.
+- `react-modal` [^3.16.1] - Componente de modal para React.
+- `TailwindCSS` - Utilitário de classes CSS para estilização dos componentes.
+- `Vite` - Ferramentas de bundle e inicialização do projeto.
 
-- Configure the top-level `parserOptions` property like this:
+## Decições técnicas
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+Infelizmente tive problemas com o filtro por data nos componentes da interface visual e não tive tempo hábil para resolver, por isso tive que retirá-lo, apesar da funcionalidade estar funcionando corretamente na API utilizada em conjunto.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+Como os componentes não estavam tão distantes não precisei utilizar a Context API do React e muito menos uma biblioteca de gerenciamento de estado como Zustand ou Redux, por isso a passagem de estado via propriedades dos componentes foi suficiente.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Execução da Aplicação
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+Para executar a aplicação utilize o comando `npm run dev`.
